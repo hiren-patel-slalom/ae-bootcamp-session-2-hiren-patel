@@ -9,6 +9,14 @@ This document defines the testing approach for the project so new features are v
 - Tests should be isolated and independent so they can run reliably across multiple executions.
 - Each test should set up its own data and avoid relying on other tests.
 - Setup and teardown hooks should be used where needed to ensure repeatable test runs.
+- Testing should reflect the core product behaviors described in the project requirements, including task creation, editing, due dates, sorting, and clear success or error feedback.
+- Prefer testing real behavior over overly mocked implementations where practical.
+
+## Testing Focus Areas
+- Cover task management flows such as adding a task, editing an existing task, assigning a due date, and displaying tasks in the expected order.
+- Verify that the UI shows relevant information clearly and that success and error states are communicated to users.
+- Validate backend endpoints that support the task workflow and ensure they return the expected data and status codes.
+- Exercise the most important user journeys end to end, rather than trying to test every possible combination.
 
 ## Unit Tests
 - Use Jest to test individual functions and React components in isolation.
@@ -31,6 +39,7 @@ This document defines the testing approach for the project so new features are v
 - Playwright tests must use one browser only.
 - Playwright tests must use the Page Object Model (POM) pattern for maintainability.
 - Limit E2E tests to 5-8 critical user journeys that cover happy paths and key edge cases.
+- Keep E2E tests focused on the most important user flows, such as creating, editing, and viewing tasks through the UI.
 
 ## Configuration and Environment
 - Always use environment variables with sensible defaults for port configuration.
