@@ -1,94 +1,223 @@
 .App {
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
 }
 
 .App-header {
   background-color: #282c34;
-  padding: 20px;
+  padding: 24px;
   color: white;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  margin-bottom: 24px;
 }
 
 .App-header h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 section {
-  background-color: #f5f5f5;
+  background-color: #f8f9fb;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.add-item-section form {
+.task-form-section form {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 16px;
   margin-top: 10px;
 }
 
-input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+.field-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.field-group label {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d7dce3;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+  color: #222;
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
 }
 
 button {
-  padding: 8px 16px;
+  padding: 10px 18px;
   background-color: #61dafb;
   color: #282c34;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
 }
 
 button:hover {
   background-color: #21a1c9;
 }
 
-ul {
-  list-style-type: none;
+button:disabled {
+  background-color: #96d7f3;
+  cursor: not-allowed;
+}
+
+.secondary-btn {
+  background-color: #e2e8f0;
+  color: #1f2937;
+}
+
+.secondary-btn:hover {
+  background-color: #cbd5e1;
+}
+
+.task-list {
+  list-style: none;
   padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
 }
 
-li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
+.task-row {
+  padding: 18px;
+  border-radius: 10px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+  border: 1px solid #e2e8f0;
+}
+
+.task-row.completed {
+  opacity: 0.8;
+  background-color: #f0fdf4;
+}
+
+.task-details {
   text-align: left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-li:last-child {
-  border-bottom: none;
+.task-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.task-description {
+  margin: 10px 0 0;
+  color: #475569;
+}
+
+.task-meta {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.task-status {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.task-completed {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.task-pending {
+  background-color: #e2e8f0;
+  color: #0f172a;
+}
+
+.task-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
 }
 
 .delete-btn {
-  background-color: #f44336;
+  background-color: #ef4444;
   color: white;
-  padding: 6px 12px;
-  font-size: 0.8rem;
-  margin-left: 10px;
 }
 
 .delete-btn:hover {
-  background-color: #d32f2f;
+  background-color: #dc2626;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.task-count {
+  color: #475569;
+  font-weight: 600;
 }
 
 .error {
-  color: #d32f2f;
-  font-weight: bold;
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.success {
+  color: #15803d;
+  font-weight: 700;
+}
+
+@media (max-width: 720px) {
+  .task-row {
+    grid-template-columns: 1fr;
+  }
+
+  .task-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
